@@ -65,7 +65,7 @@ mysqltoes
 ### db.yaml配置说明:
 ````
 ${database}:
-  - tablename: ${table}
+  - tablename: `${table}`
     es_key:
       - ${es_key_field}
       - ${es_key_field}
