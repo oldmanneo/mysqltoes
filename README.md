@@ -17,19 +17,19 @@ mysqltoes
 ## 准备工作:
 * MySQL准备
     1. MySQL binlog 开启确认：
-        mysql>show variables like 'log_bin';
-        +---------------+-------+
-        | Variable_name | Value |
-        +---------------+-------+
-        | log_bin       | ON    |
-        +---------------+-------+
+        mysql>show variables like 'log_bin';<br>
+        +---------------+-------+<br>
+        | Variable_name | Value |<br>
+        +---------------+-------+<br>
+        | log_bin       | ON    |<br>
+        +---------------+-------+<br>
     2. MySQL binlog 格式确认:
-        mysql>show global variables like "binlog%";
-        +-----------------------------------------+--------------+
-        | Variable_name                           | Value        |
-        +-----------------------------------------+--------------+
-        | binlog_format                           | ROW          |
-        +-----------------------------------------+--------------+
+        mysql>show global variables like "binlog%";<br>
+        +-----------------------------------------+--------------+<br>
+        | Variable_name                           | Value        |<br>
+        +-----------------------------------------+--------------+<br>
+        | binlog_format                           | ROW          |<br>
+        +-----------------------------------------+--------------+<br>
     3. Maxwell 用户与库
         mysql> create database maxwell;
         mysql> GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'xxxxxx';
