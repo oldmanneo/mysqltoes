@@ -14,18 +14,7 @@ mysqltoes
 * [Elasticsearch 6.3.1](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm)
 * [Logstash 6.3.1](https://artifacts.elastic.co/downloads/logstash/logstash-6.3.1.rpm)
 
-## 安装配置
-1. yum install -y gcc-c++ snappy-devel
-Python 2.7
-yum install gcc-c++ snappy-devel
-
-pip install PyYAML
-pip install pykafka
-pip install python-snappy
-pip install "elasticsearch>=6.0.0,<7.0.0"
-
-
-# 项目配置说明：
+## 项目配置说明：
     一 config目录下:
             config.yaml.sample 复制为 config.yaml 并配置
             db.yaml.sample 复制为 db.yaml 并配置
