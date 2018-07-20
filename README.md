@@ -63,7 +63,7 @@ mysqltoes
 
 
 ### db.yaml配置说明:
-````
+```
 ${database}:
   - tablename: `${table}`
     es_key:
@@ -96,7 +96,7 @@ ${database}:
     jdbc_tracking:
       column: ${tracking_field}
       type: ${tracking_type}
-````
+```
 
 ##### 解释：
     ${database} ： 需要同步至es的 数据库名
