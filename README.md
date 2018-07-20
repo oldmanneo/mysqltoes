@@ -8,6 +8,7 @@ mysqltoes
   * pip install pykafka
   * pip install python-snappy
   * pip install "elasticsearch>=6.0.0,<7.0.0"
+* Java 1.8
 * MySQL 5.6
 * [Maxwell 1.17.1](https://github.com/zendesk/maxwell)
 * [Kafka 2.11-0.9.0.1](https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz)
@@ -34,6 +35,12 @@ mysqltoes
         mysql> create database maxwell;<br>
         mysql> GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'xxxxxx';<br>
         mysql> GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE on *.* to 'maxwell'@'%';<br><br>
+* Kakfka安装配置
+   * 根据kafka官方文档安装配置kafka集群<br><br>
+* Elasticsearch安装配置
+   * 根据Elasticsearch官方文档安装配置Elasticsearch集群<br><br>
+* Logstash安装配置
+   * 根据Logstash官方文档安装配置Logstash<br><br>
 * Maxwell启动
    * wget https://github.com/zendesk/maxwell/releases/download/v1.17.1/maxwell-1.17.1.tar.gz<br>
    * tar -zxvf maxwell-1.17.1.tar.gz<br>
