@@ -1,7 +1,7 @@
 mysqltoes
 ====
 ## 项目说明:
-* 用于mysql数据向elasticsearch 数据迁移
+* 用于mysql数据向elasticsearch 数据迁移(该功能只需要用到logstash组件)
 * 用户mysql迁移elasticsearch 后，Elasticsearch作为mysql从，时时更新mysql数据至Elasticsearch
 * 该项目可做到mysql 到 elasticsearch 热迁移同步（方法:开启maxwell，停止mysqltoes，执行logstash，开启mysqltoes）
 
