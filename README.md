@@ -1,13 +1,13 @@
 mysqltoes
 ====
 
-#项目依赖:
-    * CentOS 6.x
-    * Python 2.7
-    * MySQL 5.6
-    * [Maxwell 1.17.1](https://github.com/zendesk/maxwell)
-    * [Kafka 2.11-0.9.0.1](https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz)
-    * [Elasticsearch 6.3.1](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm)
+# 项目依赖:
+    1 CentOS 6.x  
+    2 Python 2.7  
+    3 MySQL 5.6  
+    4 [Maxwell 1.17.1](https://github.com/zendesk/maxwell)  
+    5 [Kafka 2.11-0.9.0.1](https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz)  
+    6 [Elasticsearch 6.3.1](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm)  
     
     
 Python 2.7
@@ -19,7 +19,7 @@ pip install python-snappy
 pip install "elasticsearch>=6.0.0,<7.0.0"
 
 
-#项目配置说明：
+# 项目配置说明：
     一 config目录下:
             config.yaml.sample 复制为 config.yaml 并配置
             db.yaml.sample 复制为 db.yaml 并配置
@@ -68,7 +68,7 @@ ${database}:
       column: ${tracking_field}
       type: ${tracking_type}
 
-#解释：
+# 解释：
     ${database} ： 需要同步至es的 数据库名
     ${table} ： 需要同步至es的 表名
     ${es_key_field} ：声明, 同步至es后， es 的 _id字段 由 mysql的哪些字段组成, 需要注意，组成的字符串必须为全表唯一
