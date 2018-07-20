@@ -1,14 +1,21 @@
 mysqltoes
 ====
-# 项目依赖:
+## 项目依赖:
    * CentOS 6.x
+    * yum install -y gcc-c++ snappy-devel
    * Python 2.7
+    * pip install PyYAML
+    * pip install pykafka
+    * pip install python-snappy
+    * pip install "elasticsearch>=6.0.0,<7.0.0"
    * MySQL 5.6
    * [Maxwell 1.17.1](https://github.com/zendesk/maxwell)
    * [Kafka 2.11-0.9.0.1](https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz)
    * [Elasticsearch 6.3.1](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm)
-    
-    
+   * [Logstash 6.3.1](https://artifacts.elastic.co/downloads/logstash/logstash-6.3.1.rpm)
+
+## 安装配置
+1. yum install -y gcc-c++ snappy-devel
 Python 2.7
 yum install gcc-c++ snappy-devel
 
