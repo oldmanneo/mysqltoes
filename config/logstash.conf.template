@@ -1,0 +1,24 @@
+input {
+  jdbc {
+    jdbc_connection_string => "jdbc_connection_string_template"
+    jdbc_user => "jdbc_user_template"
+    jdbc_password => "jdbc_password_template"
+    jdbc_driver_library => "jdbc_driver_library_template"
+    jdbc_driver_class => "com.mysql.jdbc.Driver"
+    jdbc_paging_enabled => "true"
+    jdbc_page_size => "10000"
+run_jdbc_template
+    schedule => "* * * * *"
+  }
+}
+
+filter_template
+
+output {
+  elasticsearch {
+    hosts => hosts_template
+    index => 'index_template'
+    document_type => 'doc'
+    document_id => "document_id_template"
+  }
+}

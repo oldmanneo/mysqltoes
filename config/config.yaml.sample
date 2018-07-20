@@ -1,0 +1,19 @@
+kafka:
+    bootstrap.servers: 192.168.10.212:9092,192.168.10.213:9092,192.168.10.248:9092
+    zookeeper.servers: 192.168.10.212:2181,192.168.10.213:2181,192.168.10.248:2181
+    topic: maxwell
+    consumer_group: maxwell
+    auto_offset_reset: EARLIEST
+    reset_offset_on_start: False
+    # auto_offset_reset  LATEST  EARLIEST
+
+elasticsearch:
+    hosts:
+        - 192.168.10.212:9200
+        - 192.168.10.213:9200
+
+mysql:
+    host: 127.0.0.1
+    port: 3306
+    user: maxwell
+    password: xxxxxxxxxxxx

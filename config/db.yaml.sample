@@ -1,0 +1,32 @@
+${database}:
+  - tablename: ${table}
+    es_key:
+      - ${es_key_field}
+      - ${es_key_field}
+    format:
+      ${format_field}: integer
+      ${format_field}:: datetime
+    jdbc_tracking:
+      column: ${tracking_field}
+      type: ${tracking_type}
+      
+  - tablename: ${table}
+    es_key:
+      - ${es_key_field}
+    format:
+      ${format_field}: integer
+      ${format_field}: datetime
+    jdbc_tracking:
+      column: ${tracking_field}
+      type: ${tracking_type}
+
+${database}:
+  - tablename: ${table}
+    es_key:
+      - ${es_key_field}
+    format:
+      ${format_field}: integer
+      ${format_field}:: datetime
+    jdbc_tracking:
+      column: ${tracking_field}
+      type: ${tracking_type}

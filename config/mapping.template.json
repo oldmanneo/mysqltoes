@@ -1,0 +1,40 @@
+{
+  "settings" : {
+    "index": {
+      "number_of_shards" : 3,
+      "number_of_replicas" : 1
+    }
+  },
+  "mappings": {
+    "doc": {
+      "dynamic_date_formats": [
+        "strict_date_optional_time",
+        "strict_date_time",
+        "strict_date_time_no_millis"
+      ],
+      "dynamic_templates": [
+        {
+          "strings": {
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "text",
+              "fields": {
+                "raw": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        {
+          "floats": {
+            "match_mapping_type": "long",
+            "mapping": {
+              "type": "float"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

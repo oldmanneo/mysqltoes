@@ -1,0 +1,85 @@
+#!/bin/bash
+bin_dir=$(cd "$(dirname "$0")"; pwd)
+base_dir="${bin_dir}/.."
+log_dir="$base_dir/logs"
+run_log="$log_dir/run.log"
+pythonBin=''
+pythonBinList="python python27 /usr/local/python27/bin/python"
+
+for i in $pythonBinList;
+do
+    which $i > /dev/null 2>&1
+    if [ $? -eq 0 ];then
+        pythonV1=`$i -V 2>&1|awk '{print $2}'|awk -F '.' '{print $1}'`
+        pythonV2=`$i -V 2>&1|awk '{print $2}'|awk -F '.' '{print $2}'`
+        if [ $pythonV1 == '2' ] && [ $pythonV2 == '7' ];then
+            pythonBin="$i"
+            break
+        fi
+    fi
+done
+
+if [ "$pythonBin" == "" ];then
+    echo 'Error Can not Found python 2.7'
+    exit
+fi
+
+function stop()
+{
+    printf 'Stoping...'
+    is_check_stop=1
+    while [ $is_check_stop -eq 1 ]; do
+        printf '.'
+        ps aux | grep 'runIndex.py mysqltoes' | grep -v 'grep' > /dev/null 2>&1
+        if [ $? -eq 0 ];then
+            for pid in `ps aux | grep 'runIndex.py mysqltoes' | grep -v 'grep' | awk '{print $2}'`
+            do
+                kill $pid
+            done
+        else
+            printf '.\n'
+            is_check_stop=0
+        fi
+        sleep 1
+    done
+}
+
+function start()
+{
+    cd $base_dir
+    if [ ! -d $log_dir ];then
+        mkdir -p $log_dir
+    fi
+    echo "Started. Detail in $run_log"
+    nohup $pythonBin -u runIndex.py mysqltoes >> $run_log 2>&1 &
+}
+
+option=$1
+case $option in
+    init)
+        cd $base_dir
+        $pythonBin runInit.py
+        ;;
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    status)
+        ps aux | grep 'runIndex.py mysqltoes' | grep -v 'grep' > /dev/null 2>&1
+        if [ $? -eq 0 ];then
+            echo 'mysqltoes is running ......'
+        else:
+            echo 'mysqltoes is not running ......'
+        fi
+        ;;
+    *)
+        echo "Usage: (start | stop | restart | status | init)"
+        ;;
+esac
+
