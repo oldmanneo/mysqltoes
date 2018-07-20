@@ -3,12 +3,12 @@ mysqltoes
 
 # 项目依赖:
 
-    * CentOS 6.x  
-    * Python 2.7  
-    * MySQL 5.6  
-    * [Maxwell 1.17.1](https://github.com/zendesk/maxwell)  
-    * [Kafka 2.11-0.9.0.1](https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz)  
-    * [Elasticsearch 6.3.1](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm)  
+    * CentOS 6.x
+    * Python 2.7
+    * MySQL 5.6
+    * [Maxwell 1.17.1](https://github.com/zendesk/maxwell)
+    * [Kafka 2.11-0.9.0.1](https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz)
+    * [Elasticsearch 6.3.1](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm)
     
     
 Python 2.7
