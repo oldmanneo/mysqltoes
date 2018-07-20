@@ -14,6 +14,32 @@ mysqltoes
 * [Elasticsearch 6.3.1](https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.rpm)
 * [Logstash 6.3.1](https://artifacts.elastic.co/downloads/logstash/logstash-6.3.1.rpm)
 
+## 准备工作:
+* MySQL准备
+    1. MySQL binlog 开启确认：
+        mysql>show variables like 'log_bin';
+        +---------------+-------+
+        | Variable_name | Value |
+        +---------------+-------+
+        | log_bin       | ON    |
+        +---------------+-------+
+    2. MySQL binlog 格式确认:
+        mysql>show global variables like "binlog%";
+        +-----------------------------------------+--------------+
+        | Variable_name                           | Value        |
+        +-----------------------------------------+--------------+
+        | binlog_format                           | ROW          |
+        +-----------------------------------------+--------------+
+    3. Maxwell 用户与库
+        mysql> create database maxwell;
+        mysql> GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'xxxxxx';
+        mysql> GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE on *.* to 'maxwell'@'%';
+* Maxwell启动
+    1. wget https://github.com/zendesk/maxwell/releases/download/v1.17.1/maxwell-1.17.1.tar.gz
+    2. tar -zxvf maxwell-1.17.1.tar.gz
+    3. cd maxwell
+    4. bin/maxwell --user='maxwell' --password='xxxxxx' --host='127.0.0.1' --producer=kafka --kafka.bootstrap.servers=192.168.1.1:9092,192.168.1.2:9092,192.168.1.3:9092 --kafka_topic=maxwell --kafka_version=0.9.0.1 --log_level=DEBUG
+
 ## 项目配置说明：
     一 config目录下:
             config.yaml.sample 复制为 config.yaml 并配置
