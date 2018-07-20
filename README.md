@@ -15,7 +15,7 @@ mysqltoes
 * [Logstash 6.3.1](https://artifacts.elastic.co/downloads/logstash/logstash-6.3.1.rpm)
 
 ## 准备工作:
-* MySQL准备<br><br>
+* MySQL准备
    * MySQL binlog 开启确认:<br>
         mysql>show variables like 'log_bin';<br>
         +---------------+-------+<br>
@@ -33,12 +33,12 @@ mysqltoes
    * Maxwell 用户与库:<br>
         mysql> create database maxwell;<br>
         mysql> GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'xxxxxx';<br>
-        mysql> GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE on *.* to 'maxwell'@'%';<br>
-* Maxwell启动<br><br>
-    1. wget https://github.com/zendesk/maxwell/releases/download/v1.17.1/maxwell-1.17.1.tar.gz<br>
-    2. tar -zxvf maxwell-1.17.1.tar.gz<br>
-    3. cd maxwell<br>
-    4. bin/maxwell --user='maxwell' --password='xxxxxx' --host='127.0.0.1' --producer=kafka --kafka.bootstrap.servers=192.168.1.1:9092,192.168.1.2:9092,192.168.1.3:9092 --kafka_topic=maxwell --kafka_version=0.9.0.1 --log_level=DEBUG<br>
+        mysql> GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE on *.* to 'maxwell'@'%';<br><br>
+* Maxwell启动
+   * wget https://github.com/zendesk/maxwell/releases/download/v1.17.1/maxwell-1.17.1.tar.gz<br>
+   * tar -zxvf maxwell-1.17.1.tar.gz<br>
+   * cd maxwell<br>
+   * bin/maxwell --user='maxwell' --password='xxxxxx' --host='127.0.0.1' --producer=kafka --kafka.bootstrap.servers=192.168.1.1:9092,192.168.1.2:9092,192.168.1.3:9092 --kafka_topic=maxwell --kafka_version=0.9.0.1 --log_level=DEBUG<br><br>
 
 ## 项目配置说明：
     一 config目录下:
