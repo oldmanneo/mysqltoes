@@ -62,7 +62,8 @@ mysqltoes
     四 数据导入成功后， 启动数据时时同步程序: bin/mysqltoes start
 
 
-#db.yaml配置说明:
+### db.yaml配置说明:
+````
 ${database}:
   - tablename: ${table}
     es_key:
@@ -95,8 +96,9 @@ ${database}:
     jdbc_tracking:
       column: ${tracking_field}
       type: ${tracking_type}
+````
 
-# 解释：
+##### 解释：
     ${database} ： 需要同步至es的 数据库名
     ${table} ： 需要同步至es的 表名
     ${es_key_field} ：声明, 同步至es后， es 的 _id字段 由 mysql的哪些字段组成, 需要注意，组成的字符串必须为全表唯一
