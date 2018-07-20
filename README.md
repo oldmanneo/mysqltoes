@@ -53,19 +53,25 @@ mysqltoes
    * bin/maxwell --user='maxwell' --password='xxxxxx' --host='127.0.0.1' --producer=kafka --kafka.bootstrap.servers=192.168.1.1:9092,192.168.1.2:9092,192.168.1.3:9092 --kafka_topic=maxwell --kafka_version=0.9.0.1 --log_level=DEBUG<br><br>
 
 ## 项目配置说明：
-    一 config目录下:
-            config.yaml.sample 复制为 config.yaml 并配置
-            db.yaml.sample 复制为 db.yaml 并配置
-            mapping.template.json 复制为 mapping.json
+    一 config目录下:<br>
+      config.yaml.sample 复制为 config.yaml 并配置<br>
+      db.yaml.sample 复制为 db.yaml 并配置<br>
+      mapping.template.json 复制为 mapping.json<br><br>
 
-    二 项目初始化： bin/mysqltoes init
+    二 项目初始化: <br>
+    ```
+      # bin/mysqltoes init<br><br>
+    ```
 
-    三 导入初始数据进es
-            cd logs/logstash/
-            /usr/share/logstash/bin/logstash -f xxx.conf
-
-    四 数据导入成功后， 启动数据时时同步程序: bin/mysqltoes start
-
+    三 导入初始数据进es:
+    ```
+      # cd logs/logstash/
+      # /usr/share/logstash/bin/logstash -f xxx.conf
+    ```
+    四 数据导入成功后， 启动数据时时同步程序: 
+    ```
+      # bin/mysqltoes start
+    ```
 
 ### db.yaml配置说明:
 ```php
